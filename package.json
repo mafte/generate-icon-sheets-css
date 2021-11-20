@@ -1,0 +1,18 @@
+{
+  "name": "gulp-icons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "mini-svg-data-uri": "^1.4.3"
+  },
+  "devDependencies": {
+    "gulp-tap": "^2.0.0"
+  }
+}
