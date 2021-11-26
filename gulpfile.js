@@ -1,4 +1,5 @@
 const fs = require("fs");
+const gulp = require("gulp");
 const svgToMiniDataURI = require('mini-svg-data-uri');
 
 const folderPath = 'icons-svg/'; //Does not work with sub directories
@@ -13,15 +14,26 @@ async function defaultTask() {
 
     codeSvgs();
     createIconSheet();
+    gulp.watch(['icons-svg/*.svg'], iconSh)
 
     return true;
 }
+
+async function iconSh() {
+
+    codeSvgs();
+    createIconSheet();
+    return true;
+}
+
 
 function codeSvgs() {
 
     filesNamesOriginal = fs.readdirSync(folderPath);
 
     //Filter only .svg files
+    filesNamesFilter = [];
+    filesNamesFilter.length = 0;
     for (let index = 0; index < filesNamesOriginal.length; index++) {
 
         const element = filesNamesOriginal[index];
@@ -31,6 +43,7 @@ function codeSvgs() {
         }
 
     }
+
 
     for (let index = 0; index < filesNamesFilter.length; index++) {
         const element = filesNamesFilter[index];
@@ -47,6 +60,8 @@ function codeSvgs() {
         /* Automatically changes the icons from white to black. That serves to later use a class with filters, in case it is necessary to change the color */
         filesContents[index] = svgToMiniDataURI(filesContents[index]).replace("fill='white'", "fill='black'");
     }
+
+
 
 }
 

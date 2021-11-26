@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "gulp": "^4.0.2",
+    "gulp-sass": "^5.0.0",
     "mini-svg-data-uri": "^1.4.3"
   },
   "devDependencies": {
